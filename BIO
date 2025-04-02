@@ -1,0 +1,68 @@
+import 'dart:io';
+
+void main() {
+  print("\n🚀 Welcome to the  Biodata Generator!\n");
+
+  stdout.write("Enter your Name: ");
+  String name = stdin.readLineSync() ?? '';
+
+  stdout.write("Enter your Phone Number: ");
+  String phone = stdin.readLineSync() ?? '';
+
+  stdout.write("Enter your Age: ");
+  int age = int.tryParse(stdin.readLineSync() ?? '') ?? 0;
+
+  stdout.write("Enter your Height (cm): ");
+  double height = double.tryParse(stdin.readLineSync() ?? '') ?? 0;
+
+  stdout.write("Enter your Weight (kg): ");
+  double weight = double.tryParse(stdin.readLineSync() ?? '') ?? 0;
+
+  stdout.write("Enter your Address: ");
+  String address = stdin.readLineSync() ?? '';
+
+  stdout.write("Enter your Hobbies (comma-separated): ");
+  List<String> hobbies = (stdin.readLineSync() ?? '').split(',').map((e) => e.trim()).toList();
+
+  stdout.write("Enter your Skills (comma-separated): ");
+  List<String> skills = (stdin.readLineSync() ?? '').split(',').map((e) => e.trim()).toList();
+
+  List<Map<String, String>> experiences = [];
+  while (true) {
+    stdout.write("\nDo you want to add work experience? (yes/no): ");
+    String choice = stdin.readLineSync()?.trim().toLowerCase() ?? '';
+    if (choice != 'yes') break;
+
+    stdout.write("Enter Job Title: ");
+    String jobTitle = stdin.readLineSync() ?? '';
+
+    stdout.write("Enter Company Name: ");
+    String company = stdin.readLineSync() ?? '';
+
+    stdout.write("Enter Duration (e.g., 2022-2024): ");
+    String years = stdin.readLineSync() ?? '';
+
+    experiences.add({"Job Title": jobTitle, "Company": company, "Years": years});
+  }
+
+  print("\n Lets create your Biodata \n");
+  print("📌 Name: $name");
+  print("📌 Phone: $phone");
+  print("📌 Age: $age years");
+  print("📌 Height: ${height.toStringAsFixed(1)} cm");
+  print("📌 Weight: ${weight.toStringAsFixed(1)} kg");
+  print("📌 Address: $address");
+  print("📌 Hobbies: ${hobbies.isNotEmpty ? hobbies.join(', ') : 'None'}");
+  print("📌 Skills: ${skills.isNotEmpty ? skills.join(', ') : 'None'}");
+
+  if (experiences.isNotEmpty) {
+    print("\n💼 Work Experience:");
+    for (var exp in experiences) {
+      print("   🔹 ${exp['Job Title']} at ${exp['Company']} (${exp['Years']})");
+    }
+  } else {
+    print("\n💼 No work experience added.");
+  }
+
+  print("\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+}
