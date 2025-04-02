@@ -1,2 +1,2 @@
 # Bio_generator
-User friendly Bio gemeratoe using dart
+User friendly Bio generator using dart
