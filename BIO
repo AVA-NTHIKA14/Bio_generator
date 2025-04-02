@@ -1,7 +1,7 @@
 import 'dart:io';
 
 void main() {
-  print("\n🚀 Welcome to the  Biodata Generator!\n");
+  print("\n Welcome to the  Biodata Generator!\n");
 
   stdout.write("Enter your Name: ");
   String name = stdin.readLineSync() ?? '';
@@ -56,12 +56,12 @@ void main() {
   print("📌 Skills: ${skills.isNotEmpty ? skills.join(', ') : 'None'}");
 
   if (experiences.isNotEmpty) {
-    print("\n💼 Work Experience:");
+    print("\nWork Experience:");
     for (var exp in experiences) {
-      print("   🔹 ${exp['Job Title']} at ${exp['Company']} (${exp['Years']})");
+      print("    ${exp['Job Title']} at ${exp['Company']} (${exp['Years']})");
     }
   } else {
-    print("\n💼 No work experience added.");
+    print("\n No work experience added.");
   }
 
   print("\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
